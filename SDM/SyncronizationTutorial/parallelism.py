@@ -16,7 +16,17 @@ def build_directory_list(folder):
     return list
 
 
-files = build_directory_list("H:\pycharm-edu-2.0.3")
+def count_directories(folder):
+    total = 0
+    for file in os.listdir(folder):
+        if os.path.isdir(os.path.join(folder, file)):
+            total += 1
+    return total
+
+
+path = "D:\jaruri"
+files = build_directory_list(path)
+number_of_threads = count_directories(path)
 
 
 def makePool(num_threads):
@@ -40,11 +50,10 @@ def secvential(files):
 if __name__ == "__main__":
     repeat = 1
     number = 1
-    num_threads = [8]
-    for i in num_threads:
-        t = Timer("makePool(%s)" % i, "from __main__ import makePool")
-        best_result = min(t.repeat(repeat=repeat, number=number))
-        result_thredead = show_results("thredead(%s threads)" % i, best_result)
+    num_threads = number_of_threads
+    t = Timer("makePool(%s)" % number_of_threads, "from __main__ import makePool")
+    best_result = min(t.repeat(repeat=repeat, number=number))
+    result_thredead = show_results("thredead(%s threads)" % number_of_threads, best_result)
 
     t = Timer("secvential(%s)" % files, "from __main__ import secvential")
     best_result = min(t.repeat(repeat=repeat, number=number))
