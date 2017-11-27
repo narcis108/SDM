@@ -8,3 +8,4 @@ Exista 2 versiuni pentru implementarea acestei teme de laborator :
 2. Alegere variante ---> tema2_choose.py
     Utilizatorul are posibilitatea de a alege calea prin care se deplaseaza pana ajunge in state-ul final.
     
+  Fisierul tema2.jpg este utilizat pentru punctul1 si are caracter orientativ.
